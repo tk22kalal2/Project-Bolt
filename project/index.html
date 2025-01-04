@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Processor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button id="sidebarToggle" class="sidebar-toggle">
+            <span class="toggle-icon">≡</span>
+        </button>
+        
+        <aside class="controls-sidebar">
+            <div class="control-section">
+                <input type="file" id="pdfUpload" accept=".pdf" />
+            </div>
+
+            <div id="splitControls" class="control-section" style="display: none;">
+                <input type="number" id="startPage" placeholder="Start Page" min="1" />
+                <input type="number" id="endPage" placeholder="End Page" min="1" />
+                <button id="splitButton">Split PDF</button>
+            </div>
+
+            <div id="ocrControls" class="control-section" style="display: none;">
+                <button id="ocrButton">Generate OCR</button>
+            </div>
+
+            <div id="notesControls" class="control-section" style="display: none;">
+                <button id="notesButton">Generate Notes</button>
+                <button id="saveNotesButton">Save Notes as PDF</button>
+            </div>
+
+            <div id="quizControls" class="control-section" style="display: none;">
+                <button id="quizButton">Generate Quiz</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                Processing...
+            </div>
+
+            <div id="pdfPreview" class="preview-section"></div>
+            <div id="splitPreview" class="preview-section" style="display: none;"></div>
+            <div id="ocrTextPreview" class="preview-section" style="display: none;"></div>
+            <div id="notesEditorContainer" class="preview-section" style="display: none;">
+                <div id="notesEditor"></div>
+            </div>
+            <div id="quizContainer" class="preview-section" style="display: none;"></div>
+        </main>
+    </div>
+</body>
+</html>
